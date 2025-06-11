@@ -8,12 +8,12 @@ namespace Common.Constants
     public struct CommonConstants
     {
         public static Guid WebSiteInformationId = Guid.Parse("00000000-0000-0000-0000-000000000001");
-        public static string Address = "67 Tran Huy Lieu";
+        public static string Address = "Ho Chi Minh City";
         public static string Email = "email@gmail.com";
         public static string Fax = "656565655656";
-        public static string Logo = "https://res.cloudinary.com/tungimage/image/upload/v1620372703/ridn0zmlny900h2sjlmh.png";
-        public static string Phone = "776767776767";
-        public static string Title = "Welcome to Our ShopDbTung Store";
+        public static string Logo = "https://res.cloudinary.com/tyimage/image/upload/v1749616277/boozgpik8ovnegz6bjww.png";
+        public static string Phone = "0123456789";
+        public static string Title = "Welcome to Our Store";
         public static string Description = "This is a page for fashion";
 
     }
