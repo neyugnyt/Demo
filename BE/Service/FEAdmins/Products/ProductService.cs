@@ -33,8 +33,7 @@ namespace Service.Products
             
             model.Name = StringExtension.CleanString(model.Name);
             model.Description = StringExtension.CleanString(model.Description);
-            if (model.Name == null ||
-               model.Description == null)
+            if (string.IsNullOrWhiteSpace(model.Name) || string.IsNullOrWhiteSpace(model.Description))
             {
                 var entity = _mapper.Map<CreateProductDTO, Product>(model);
                 return new ReturnMessage<ProductDTO>(true, _mapper.Map<Product, ProductDTO>(entity), MessageConstants.InvalidString);
@@ -131,8 +130,7 @@ namespace Service.Products
 
             model.Name = StringExtension.CleanString(model.Name);
             model.Description = StringExtension.CleanString(model.Description);
-            if (model.Name == null ||
-               model.Description == null)
+            if (string.IsNullOrWhiteSpace(model.Name) || string.IsNullOrWhiteSpace(model.Description))
             {
                 var entity = _mapper.Map<UpdateProductDTO, Product>(model);
                 return new ReturnMessage<ProductDTO>(true, _mapper.Map<Product, ProductDTO>(entity), MessageConstants.InvalidString);
