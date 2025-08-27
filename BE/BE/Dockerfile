@@ -14,12 +14,12 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0-nanoserver-1809 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /BE
-COPY ["BE/BE.csproj", "BE/"]
-COPY ["Data/Data.csproj", "Data/"]
-COPY ["Domain/Domain.csproj", "Domain/"]
-COPY ["Common/Common.csproj", "Common/"]
-COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
-COPY ["Service/Service.csproj", "Service/"]
+COPY ["BE/BE/BE.csproj", "BE/"]
+COPY ["BE/Data/Data.csproj", "Data/"]
+COPY ["BE/Domain/Domain.csproj", "Domain/"]
+COPY ["BE/Common/Common.csproj", "Common/"]
+COPY ["BE/Infrastructure/Infrastructure.csproj", "Infrastructure/"]
+COPY ["BE/Service/Service.csproj", "Service/"]
 RUN dotnet restore "./BE/BE.csproj"
 COPY . .
 WORKDIR "/BE/BE"
