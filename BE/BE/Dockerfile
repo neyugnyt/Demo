@@ -18,8 +18,8 @@ COPY ["BE/Service/Service.csproj", "BE/Service/"]
 RUN dotnet restore "BE/BE/BE.csproj"
 
 COPY . .
-WORKDIR /BE/BE
-RUN dotnet build "BE.csproj" -c Release -o /app/build /p:UseAppHost=false
+WORKDIR /BE
+RUN dotnet build "BE/BE.csproj" -c Release -o /app/build /p:UseAppHost=false
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
