@@ -26,7 +26,7 @@ namespace BE
 
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowAll",
+                options.AddPolicy(name: "AllowAll",
                     builder =>
                     {
                         builder.AllowAnyOrigin()
@@ -34,7 +34,16 @@ namespace BE
                             .AllowAnyHeader();
                     });
             });
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "AllowProduction",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://tynguyen-fe-admin.vercel.app", "https://localhost:3000")
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
 
             services.AddControllers();
 
@@ -75,7 +84,7 @@ namespace BE
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors("AllowAll");
+            app.UseCors("AllowProduction");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -92,7 +101,7 @@ namespace BE
             app.UseRouting();
             app.UseAuthorization();
 
-            if (env.IsDevelopment())
+            if (env.IsDevelopment() || env.IsStaging() || env.IsProduction())
             {
                 // Enable middleware to serve generated Swagger as a JSON endpoint.
                 app.UseSwagger();
