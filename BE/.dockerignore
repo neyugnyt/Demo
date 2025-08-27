@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.vs/
+.vscode/
+
+# Node modules (frontend)
+node_modules/
+npm-debug.log
+
+# Docker Compose files (not needed in image)
+docker-compose*
+docker-compose*.yml
+
+# Git stuff
+.git/
+.gitignore
