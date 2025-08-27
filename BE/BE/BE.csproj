@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <UserSecretsId>922355ff-4d97-421e-ae68-dbb283ad3b4d</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +23,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
