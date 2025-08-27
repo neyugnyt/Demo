@@ -47,9 +47,5 @@
     <Folder Include="wwwroot\Files\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="..\.dockerignore" />
-  </ItemGroup>
-
 
 </Project>
