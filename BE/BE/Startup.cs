@@ -39,7 +39,7 @@ namespace BE
                 options.AddPolicy(name: "AllowProduction",
                     builder =>
                     {
-                        builder.WithOrigins("https://tynguyen-fe-admin.vercel.app", "https://localhost:3000")
+                        builder.WithOrigins("https://tynguyen-fe-admin.vercel.app", "https://fe-user-seven.vercel.app")
                             .AllowAnyMethod()
                             .AllowAnyHeader();
                     });
