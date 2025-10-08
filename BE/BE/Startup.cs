@@ -39,7 +39,7 @@ namespace BE
                 options.AddPolicy(name: "AllowProduction",
                     builder =>
                     {
-                        builder.WithOrigins("https://tynguyen-fe-admin.vercel.app", "https://localhost:3000")
+                        builder.WithOrigins("https://localhost:4200", "https://localhost:3000")
                             .AllowAnyMethod()
                             .AllowAnyHeader();
                     });
@@ -84,7 +84,7 @@ namespace BE
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors("AllowProduction");
+            app.UseCors("AllowAll");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
