@@ -74,7 +74,7 @@ namespace BE
                     Description = "Description for the API goes here.",
                     Contact = new OpenApiContact
                     {
-                        Name = "Restaff",
+                        Name = "Shop",
                         Email = string.Empty,
                     },
                 });
