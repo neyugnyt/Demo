@@ -110,7 +110,34 @@ namespace Service.Categories
 
             return result;
         }
-    
+
+        public ReturnMessage<PaginatedList<CategoryDTO>> SearchPaginationCategory(SearchPaginationCategoryDTO<CategoryDTO> search)
+        {
+            if (search == null)
+            {
+                return new ReturnMessage<PaginatedList<CategoryDTO>>(false, null, MessageConstants.Error);
+            }
+
+            var query = _categoryRepository.Queryable().Where(it => (search.Search == null ||
+                (
+                    (
+                        (search.Search.Id == Guid.Empty ? false : it.Id == search.Search.Id) ||
+                        it.Name.Contains(search.Search.Name) ||
+                        it.Description.Contains(search.Search.Description)
+                    )
+
+                )) && !it.IsDeleted)
+                .OrderBy(it => it.Name)
+                .ThenBy(it => it.Name.Length);
+            var resultEntity = new PaginatedList<Category>(query, search.PageIndex * search.PageSize, search.PageSize);
+            var data = _mapper.Map<PaginatedList<Category>, PaginatedList<CategoryDTO>>(resultEntity);
+            var result = new ReturnMessage<PaginatedList<CategoryDTO>>(false, data, MessageConstants.ListSuccess);
+
+            return result;
+        }
+
+
+
 
         public ReturnMessage<CategoryDTO> Update(UpdateCategoryDTO model)
         {

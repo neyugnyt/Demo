@@ -8,5 +8,7 @@ namespace Service.Categories
     public interface ICategoryService : ICommonCRUDService<CategoryDTO, CreateCategoryDTO, UpdateCategoryDTO, DeleteCategoryDTO>
     {
         ReturnMessage<PaginatedList<CategoryDTO>> SearchPagination(SearchPaginationDTO<CategoryDTO> search);
+
+        ReturnMessage<PaginatedList<CategoryDTO>> SearchPaginationCategory(SearchPaginationCategoryDTO<CategoryDTO> search);
     }
 }

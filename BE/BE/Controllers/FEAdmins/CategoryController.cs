@@ -33,6 +33,14 @@ namespace BE.Controllers.FEAdmins
             return CommonResponse(result);
         }
 
+        [HttpGet(UrlConstants.BaseAllCategory)]
+        public IActionResult GetAllCategory([FromQuery] SearchPaginationCategoryDTO<CategoryDTO> serachPagination)
+        {
+
+            var result = _categoryService.SearchPaginationCategory(serachPagination);
+            return CommonResponse(result);
+        }
+
         [HttpPost]
         public IActionResult Create([FromBody] CreateCategoryDTO model)
         {

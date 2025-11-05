@@ -30,6 +30,8 @@ namespace Common.Constants
 
         public const string BaseCategory = BaseApi + "/category";
 
+        public const string BaseAllCategory = BaseApi + "/all-category";
+
         public const string BaseFile = BaseApi + "/file";
 
         public const string BaseFileDownload = BaseFile + "/download";
